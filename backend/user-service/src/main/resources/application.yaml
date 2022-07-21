@@ -1,0 +1,40 @@
+server:
+  port: 3001
+
+jobservice:
+  baseurl: http://localhost:3004/job
+
+spring:
+
+  jackson:
+    serialization:
+      fail_on_empty_beans: false
+  datasource:
+    username: bootcamp29
+    password: test123
+
+    url: jdbc:postgresql://localhost:5432/greencommute
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  application:
+    name: USER-SERVICE
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+
+

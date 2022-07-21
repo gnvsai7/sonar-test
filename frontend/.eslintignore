@@ -1,0 +1,7 @@
+build/
+src/assets
+src/stories
+**/*.stories.js
+**/*.stories.tsx 
+node_modules/
+*.css
