@@ -1,3 +1,4 @@
+
 name: Build
 on:
   push:
@@ -6,29 +7,15 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  build-app:
+  sonarcloud:
+    name: SonarCloud
     runs-on: ubuntu-latest
-    defaults: 
-      run:
-          working-directory: frontend
     steps:
       - uses: actions/checkout@v2
-      - name: Setup node 16
-        uses: actions/setup-node@v2
         with:
-          node-version: '16.14.0'
-
-      - name: install dependencies
-        id: install-dependencies
-        run: npm ci
-
-      - name: RUN TESTS
-        id: run-tests
-        run: npm run test:coverage
-
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: SonarCloud Scan
-        id: run-sonar-tests
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
