@@ -2,7 +2,7 @@
 
 import requests,json,sys,os
 
-token=os.environ["ZOHO_TOKEN"]
+ZOHO_TOKEN=os.environ["ZOHO_TOKEN"]
 # token="1000.699c697a8631977ef09294acf8cfb2b8.461cec9de1617e6032d71534b263c321"
 sentby="GNV SAI"
 subject= "bug report"
@@ -12,7 +12,7 @@ urldest= 'https://cliq.zoho.com/api/v2/channelsbyname/sonarnotification/message'
 
 headers = {
         "Content-type": "application/json",
-        "Authorization": "Zoho-oauthtoken " + (token)
+        "Authorization": "Zoho-oauthtoken " + (ZOHO_TOKEN)
         }
 
 content = {
