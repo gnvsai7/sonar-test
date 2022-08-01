@@ -1,6 +1,6 @@
 #!/bin/bash
-record=$(curl -s $auth "https://sonarcloud.io/api/measures/component_tree?component=gnvsai&metricKeys=reliability_rating&ps=100&p=1")
-value=$(echo $record | jq -r '.baseComponents.measures[0].value')
+record=$(curl -s $auth "https://sonarcloud.io/api/measures/component?component=gnvsai&metricKeys=reliability_rating")
+value=$(echo $record | jq -r '.components.measures[0].value')
 echo $value
 
 export ZOHO_TOKEN=$(curl -X POST "https://accounts.zoho.com/oauth/v2/token?client_id=1000.WRSS1BW7HC6UTSKDPPFWTKI6PO9AEZ&client_secret=64e2636efb747eb35fdd01cf5a15cc25b4b6bcf0cd&redirect_uri=http://application_name.com/&grant_type=refresh_token&scope=ZohoCliq.Channels.CREATE,ZohoCliq.Channels.READ,ZohoCliq.Channels.UPDATE,ZohoCliq.Channels.DELETE,ZohoCliq.Webhooks.CREATE&refresh_token=$REFRESH_TOKEN" | jq '.["access_token"]' | sed 's/\"//g')
