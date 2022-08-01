@@ -2,7 +2,7 @@
 
 import requests,json,sys,os
 
-ZOHO_TOKEN=os.environ["ZOHO_TOKEN"]
+token=os.environ["ZOHO_TOKEN"]
 # token="1000.699c697a8631977ef09294acf8cfb2b8.461cec9de1617e6032d71534b263c321"
 sentby="GNV SAI"
 subject= "bug report"
