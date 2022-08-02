@@ -6,7 +6,7 @@ ZOHO_TOKEN=os.environ["ZOHO_TOKEN"]
 # token="1000.699c697a8631977ef09294acf8cfb2b8.461cec9de1617e6032d71534b263c321"
 sentby="GNV SAI"
 subject= "bug report"
-message= 'Current Quality Status is D , "https://sonarcloud.io/summary/new_code?id=gnvsai&branch=master" '
+message= 'Current Quality Status is D , "https://sonarcloud.io/summary/overall_code?id=gnvsai&branch=master" '
 
 urldest= 'https://cliq.zoho.com/api/v2/channelsbyname/sonarnotification/message'
 
