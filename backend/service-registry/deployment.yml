@@ -1,0 +1,39 @@
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: job-svc
+  labels:
+    app: job
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: job
+    
+  template:
+    metadata:
+      name: job
+      labels:
+        app: job
+    spec:
+      containers:
+        - name: backend
+          image: gnvsai2020/jenkins-backend:latest
+          ports:
+            - containerPort: 8761
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: job-service
+  labels:
+    app: job
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8761
+    targetPort: 8761
+  selector:
+    app: job 
